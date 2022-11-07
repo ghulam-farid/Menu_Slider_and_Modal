@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root{
+   --modal-duration: 1s;
+   --primary-color: #30336b;
+   --secondary-color: #be2edd;
+}
+
+*, *::before, *::after{
+   margin: 0;
+   padding: 0;
+   box-sizing: inherit;
+   -webkit-box-sizing: inherit;
+   -moz-box-sizing: inherit;
+}
+
+html{
+   font-size: 62.5%;
+   box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+}
+
+body{
+   font-family: 'Lato', sans-serif;
+   font-size: 1.6rem;
+   line-height: 1.6;
+   transition: transform 0.3s ease;
+}
+body.show-nav{
+   transform: translateX(20rem);
+   overflow: hidden;
+}
+
+nav{
+   background-color: var(--primary-color);
+   color: #fff;
+   border-right: 2px solid rgba(200, 200, 200, 0.1);
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 20rem;
+   height: 100vh;
+   z-index: 100;
+   transform: translateX(-100%);
+}
+
+nav > .logo{
+   padding: 3rem;
+   text-align: center;
+}
+nav > .logo > img{
+   width: 7.5rem;
+   height: 7.5rem;
+   border-radius: 50%;
+}
+nav > ul{
+   list-style-type: none;
+}
+nav > ul > li{
+   padding: 2rem;
+   border-bottom: 2px solid rgba(200, 200, 200, 0.1);
+}
+nav > ul > li:first-of-type{
+   border-top: 2px solid rgba(200, 200, 200, 0.1);
+}
+nav > ul > li > a{
+   color: #fff;
+   text-decoration: none;
+   text-transform: uppercase;
+   font-size: 1.4rem;
+   font-weight: 700;
+   letter-spacing: 0.1rem;
+   transition: all 0.3s;
+}
+nav > ul > li > a:hover{
+   color: var(--secondary-color);
+   text-decoration: underline;
+}
+header{
+   background-color: var(--primary-color);
+   color: #fff;
+   padding: 4rem 1.5rem;
+   text-align: center;
+   font-size: 130%;
+   position: relative;
+}
+header p{
+   margin: 2rem 0;
+}
+button, input[type="submit"]{
+   background-color: var(--secondary-color);
+   color: #fff;
+   border: none;
+   border-radius: 0.5rem;
+   cursor: pointer;
+   padding: 0.8rem 1.2rem;
+}
+button:focus, input[type="submit"]:focus{
+   outline: none;
+}
+header > .toggle{
+   background-color: rgba(0, 0, 0, 0.2);
+   position: absolute;
+   top: 2rem;
+   left: 2rem;
+}
+header > button.cta-btn{
+   padding: 1.2rem 3rem;
+   font-size: 2rem;
+}
+.container{
+   padding: 1.5rem;
+   margin: auto;
+   max-width: 100%;
+   width: 80rem;
+}
+
+.modal-container{
+   background-color: rgba(0, 0, 0, 0.6);
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+}
+.modal-container.show-modal{
+   display:block;
+}
+.modal{
+   background-color: #fff;
+   border-radius: 0.5rem;
+   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 40rem;
+   max-width: 100%;
+   overflow: hidden;
+   transform: translate(-50%, -50%);
+   animation-name: modalopen;
+   animation-duration: var(--modal-duration);
+}
+.modal > .modal-header{
+   background-color: var(--primary-color);
+   color: #fff;
+   padding: 1.5rem;
+   /* text-align: center;
+   font-size: 2rem; */
+}
+.modal > .modal-header > h3{
+   font-size: 2rem;
+   font-weight: normal;
+   border-bottom: 1px solid #333;
+}
+.modal .modal-content{
+   padding: 2rem;
+}
+.modal-form > div{
+   margin: 1.5rem 0;
+}
+.modal-form  label{
+   display: block;
+   margin-bottom: 0.5rem;
+}
+
+.modal-form .form-input{
+   width: 100%;
+   padding: 0.8rem 1.2rem;
+   border: 1px solid #ccc;
+   border-radius: 0.5rem;
+   font-size: 1.4rem;
+}
+.modal .close-btn{
+   background: transparent;
+   position: absolute;
+   top: 1rem;
+   right: 1rem;
+   font-size: 2.4rem;
+}
+
+@keyframes modalopen {
+   from{
+      opacity: 0;
+   }
+   to{
+      opacity: 1;
+   }
+}
